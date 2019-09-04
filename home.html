@@ -48,173 +48,21 @@
                         <img class="my-body" :src="'images/'+ choseGender +'.png'">
                     </div>
                 </div>
-                <nav class="nav u-abs J_menu show">
+                <nav class="nav u-abs J_menu " :class="{'show':navShow}">
                     <div class="nav-box">
-                        <div class="item" :class="item" v-for="item in match">
+                        <div class="item" :class="item" v-for="item in match" @click="dressStyle(item)">
                             <i></i>
                         </div>
                     </div>
                 </nav>
-                <div class="nav u-abs J_list list">
-                    <span class="close"></span>
+                <div class="nav u-abs J_list list" :class="{'show':!navShow}">
+                    <span class="close" @click="backDressStyle"></span>
                     <ul class="nav-box">
-                        <li class="hat" style="display: none;">
-                            <span class="icon hat1"></span>
-                            <span class="icon hat2"></span>
-                            <span class="icon hat3"></span>
-                            <span class="icon hat4"></span>
-                            <span class="icon hat5"></span>
-                            <span class="icon hat6"></span>
-                            <span class="icon hat7"></span>
-                            <span class="icon hat8"></span>
-                            <span class="icon hat9"></span>
-                            <span class="icon hat10"></span>
-                            <span class="icon hat11"></span>
-                            <span class="icon hat12"></span>
-                            <span class="icon hat13"></span>
-                            <span class="icon hat14"></span>
-                        </li>
-                        <li class="eye" style="display: list-item;">
-                            <span class="icon eye1 cur"></span>
-                            <span class="icon eye2"></span>
-                            <span class="icon eye3"></span>
-                            <span class="icon eye4"></span>
-                            <span class="icon eye5"></span>
-                            <span class="icon eye6"></span>
-                            <span class="icon eye7"></span>
-                            <span class="icon eye8"></span>
-                            <span class="icon eye9"></span>
-                        </li>
-                        <li class="hair" data-for="female" style="display: none;">
-                            <span class="icon femalehair2 cur"></span>
-                            <span class="icon femalehair1"></span>
-                            <span class="icon femalehair3"></span>
-                            <span class="icon femalehair4"></span>
-                            <span class="icon femalehair5"></span>
-                            <span class="icon femalehair6"></span>
-                            <span class="icon femalehair7"></span>
-                        </li>
-                        <li class="jacket" data-for="female" style="display: none;">
-                            <span class="icon femalejacket2"></span>
-                            <span class="icon femalejacket3"></span>
-                            <span class="icon femalejacket4"></span>
-                            <span class="icon femalejacket5"></span>
-                            <span class="icon femalejacket6"></span>
-                            <span class="icon femalejacket7"></span>
-                            <span class="icon femalejacket8"></span>
-                            <!-- <span class="icon femalejacket9"></span> -->
-                            <span class="icon femalejacket10"></span>
-                            <span class="icon femalejacket11"></span>
-                            <span class="icon femalejacket12"></span>
-                            <span class="icon femalejacket13"></span>
-                            <span class="icon femalejacket14"></span>
-                            <span class="icon femalejacket15"></span>
-                            <span class="icon femalejacket16"></span>
-                            <span class="icon femalejacket17"></span>
-                            <span class="icon femalejacket18"></span>
-                            <span class="icon femalejacket19"></span>
-                        </li>
-                        <li class="pants" data-for="female" style="display: none;">
-                            <span class="icon femalepants2"></span>
-                            <span class="icon femalepants3"></span>
-                            <span class="icon femalepants4"></span>
-                            <span class="icon femalepants5"></span>
-                            <span class="icon femalepants6"></span>
-                            <span class="icon femalepants7"></span>
-                            <span class="icon femalepants8"></span>
-                            <span class="icon femalepants9"></span>
-                            <span class="icon femalepants10"></span>
-                            <span class="icon femalepants11"></span>
-                            <span class="icon femalepants12"></span>
-                            <span class="icon femalepants13"></span>
-                            <span class="icon femalepants14"></span>
-                            <span class="icon femalepants15"></span>
-                        </li>
-                        <li class="shoes" data-for="female" style="display: none;">
-                            <span class="icon femaleshoes10 cur"></span>
-                            <span class="icon femaleshoes1"></span>
-                            <span class="icon femaleshoes2"></span>
-                            <span class="icon femaleshoes3"></span>
-                            <span class="icon femaleshoes4"></span>
-                            <span class="icon femaleshoes5"></span>
-                            <span class="icon femaleshoes6"></span>
-                            <span class="icon femaleshoes7"></span>
-                            <span class="icon femaleshoes8"></span>
-                            <span class="icon femaleshoes9"></span>
-                            <span class="icon femaleshoes11"></span>
-                        </li>
-                        <li class="object" style="display: none;">
-                            <span class="icon object2"></span>
-                            <span class="icon object3"></span>
-                            <span class="icon object4"></span>
-                            <span class="icon object5"></span>
-                            <span class="icon object6"></span>
-                            <span class="icon object7"></span>
-                            <span class="icon object8"></span>
-                            <span class="icon object9"></span>
-                            <span class="icon object10"></span>
-                            <span class="icon object11"></span>
-                            <span class="icon object12"></span>
-                            <span class="icon object13"></span>
-                            <span class="icon object14"></span>
-                            <span class="icon object15"></span>
-                        </li>
-                        <li class="hair" data-for="male" style="display: none;">
-                            <span class="icon malehair4 cur"></span>
-                            <span class="icon malehair1"></span>
-                            <span class="icon malehair2"></span>
-                            <span class="icon malehair3"></span>
-                            <span class="icon malehair5"></span>
-                            <span class="icon malehair6"></span>
-                            <span class="icon malehair7"></span>
-                        </li>
-                        <li class="pants" data-for="male" style="display: none;">
-                            <span class="icon malepants2"></span>
-                            <span class="icon malepants3"></span>
-                            <span class="icon malepants4"></span>
-                            <span class="icon malepants5"></span>
-                            <span class="icon malepants6"></span>
-                            <span class="icon malepants7"></span>
-                            <span class="icon malepants8"></span>
-                            <span class="icon malepants9"></span>
-                            <span class="icon malepants10"></span>
-                            <span class="icon malepants11"></span>
-                            <span class="icon malepants12"></span>
-                            <span class="icon malepants13"></span>
-                            <span class="icon malepants14"></span>
-                        </li>
-                        <li class="jacket" data-for="male" style="display: none;">
-                            <span class="icon malejacket2"></span>
-                            <span class="icon malejacket3"></span>
-                            <span class="icon malejacket4"></span>
-                            <span class="icon malejacket5"></span>
-                            <span class="icon malejacket6"></span>
-                            <span class="icon malejacket7"></span>
-                            <span class="icon malejacket8"></span>
-                            <span class="icon malejacket9"></span>
-                            <span class="icon malejacket10"></span>
-                            <span class="icon malejacket11"></span>
-                            <span class="icon malejacket12"></span>
-                            <span class="icon malejacket13"></span>
-                            <span class="icon malejacket14"></span>
-                            <span class="icon malejacket15"></span>
-                            <span class="icon malejacket16"></span>
-                            <span class="icon malejacket17"></span>
-                            <span class="icon malejacket18"></span>
-                            <span class="icon malejacket19"></span>
-                            <span class="icon malejacket20"></span>
-                        </li>
-                        <li class="shoes" data-for="male" style="display: none;">
-                            <span class="icon maleshoes9 cur"></span>
-                            <span class="icon maleshoes1"></span>
-                            <span class="icon maleshoes2"></span>
-                            <span class="icon maleshoes3"></span>
-                            <span class="icon maleshoes4"></span>
-                            <span class="icon maleshoes5"></span>
-                            <span class="icon maleshoes6"></span>
-                            <span class="icon maleshoes7"></span>
-                            <span class="icon maleshoes8"></span>
-                            <span class="icon maleshoes10"></span>
+                        <li :class="matchChose">
+                            <span class="icon" :class="{'cur':genderChose===item}"
+                                v-for="item in gender[choseGender][matchChose]" @click="dressUp(item)">
+                            <img :src="'../images/'+matchChose+'/'+item+'.png'">
+                            </span>
                         </li>
                     </ul>
                 </div>
