@@ -1,6 +1,5 @@
-nie.define('Index',function(){
-    const ds = nie.require('ds');
-    const Role = nie.require('Role');
+
+ 
     var tick =document.getElementById('tick');
     function Index(opts){
         this.init(opts);
@@ -194,4 +193,4 @@ nie.define('Index',function(){
         // Loadmark.find('.value').text(percent + '%')
         // Loadmark.find('i').width(percent + '%')
     }).load();
-});
+
