@@ -45,7 +45,9 @@
             <div class="box-inside">
                 <div class="canvas-box">
                     <div class="canvas-body">
-                        <img class="my-body" :src="'images/'+ choseGender +'.png'">
+                        <img class="my my-body" :src="'images/'+ choseGender +'.png'">
+                        <img class="my" :class="'my-'+item.name" v-if="item.chose" v-for="item in gender[choseGender]"
+                            :src="'../images/'+choseGender+'/'+item.name+'/'+item.chose+'.png'">
                     </div>
                 </div>
                 <nav class="nav u-abs J_menu " :class="{'show':navShow}">
@@ -60,8 +62,8 @@
                     <ul class="nav-box">
                         <li :class="matchChose">
                             <span class="icon" :class="{'cur':genderChose===item}"
-                                v-for="item in gender[choseGender][matchChose]" @click="dressUp(item)">
-                            <img :src="'../images/'+matchChose+'/'+item+'.png'">
+                                v-for="item in gender[choseGender][matchChose].length" @click="dressUp(item)">
+                                <img :src="'../images/'+choseGender+'/'+matchChose+'/'+item+'.png'">
                             </span>
                         </li>
                     </ul>
